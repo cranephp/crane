@@ -1,0 +1,42 @@
+{
+	"name": "cranephp/crane",
+	"description": "CranePHP core repository",
+	"type": "project",
+	"require": {
+		"php": "^7.1.3"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^7.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Common\\": "Common",
+			"Core\\": "Core"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "Tests"
+		}
+	},
+	"config": {
+		"vendor-dir": "Core/vendor",
+		"sort-packages": true
+	},
+	"scripts": {
+		"post-root-package-install": [
+			"Core\\Scripts\\Composer\\PostRootPackageInstall::runScript"
+		],
+		"post-create-project-cmd": [
+			"Core\\Scripts\\Composer\\PostCreateProjectCommand::runScript"
+		],
+		"post-update-cmd": [
+			"Core\\Scripts\\Composer\\PostUpdateCommand::runScript"
+		],
+		"post-autoload-dump": [
+			"Core\\Scripts\\Composer\\PostAutoloadDump::runScript"
+		]
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
